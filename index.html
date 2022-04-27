@@ -99,6 +99,7 @@
 
 <script>
     const setActiveTab = (activeIndex) => {
+        if (!activeIndex) return;
         const allDays = [...document.querySelectorAll('.day')];
 
         allDays.forEach((dayNode, index) => {
@@ -111,13 +112,17 @@
     }
 
     const setActiveSection = (activeIndex) => {
+        if (!activeIndex) return;
         const allSections = [...document.querySelectorAll('.day__exercises')];
 
         allSections.forEach((dayNode, index) => {
+
+            if (dayNode.classList.contains('active-section') && index !== +activeIndex) {
+                console.log(index, activeIndex)
+                dayNode.classList.remove('active-section')
+            }
             if (index === +activeIndex && !dayNode.classList.contains('active-section')) {
                 dayNode.classList.add('active-section')
-            } else if (dayNode.classList.contains('active-section')) {
-                dayNode.classList.remove('active-section')
             }
         })
     }
