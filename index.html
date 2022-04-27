@@ -1,4 +1,4 @@
-<html>
+<html lang="uk">
 <head>
     <title>TRAINING!</title>
     <meta charset="UTF-8">
@@ -125,7 +125,7 @@
     const days = document.querySelector('#days');
 
     if (window.innerWidth <= 1281) {
-        days.addEventListener('touchstart', function (el) {
+        days.addEventListener('touchend', function (el) {
             const currentDay = el.target.dataset.index;
 
             setActiveTab(currentDay);
