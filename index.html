@@ -1,0 +1,146 @@
+<html>
+<head>
+    <title>TRAINING!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../test/index.js"></script>
+</head>
+<body>
+<nav class="nav">
+    <ul class="days" id="days">
+        <li class="day active-day" data-index="0">Day 1</li>
+        <li class="day" data-index="1">Day 2</li>
+        <li class="day" data-index="2">Day 3</li>
+    </ul>
+</nav>
+
+<main>
+
+    <section class="day__exercises active-section">
+        <h1 class="day__caption">День ніг</h1>
+        <div class="exercise">
+            <p>1. Присід зі штангою.</p>
+            <img src="img/1.1.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>2. Випади зі штангою або гантелями.</p>
+            <img src="img/1.2.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>3. Розгинання ніг в тренажері.</p>
+            <img src="img/1.3.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>4. Згинання ніг в тринажері.</p>
+            <img src="img/1.4.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>5. Вправа на прес.</p>
+            <img src="img/1.5.gif" alt="присід">
+        </div>
+    </section>
+
+    <section class="day__exercises">
+        <h1 class="day__caption">День спини, плечей</h1>
+        <div class="exercise">
+            <p>1. Підтягування широким хватом.</p>
+            <img src="img/2.1.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>2. Тяга штанги в нахилі.</p>
+            <img src="img/2.2.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>3. Тяга верхнього блока вузьким хватом.</p>
+            <img src="img/2.3.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>4. Жим гантелей сидячи.</p>
+            <img src="img/2.4.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>5. Махи гантелей стоячи.</p>
+            <img src="img/2.5.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>6. Махи гантелями в наклоні.</p>
+            <img src="img/2.6.gif" alt="присід">
+        </div>
+    </section>
+
+    <section class="day__exercises">
+        <h1 class="day__caption">Грудні мязи, руки</h1>
+        <div class="exercise">
+            <p>1. Жим штанги лежачи.</p>
+            <img src="img/3.1.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>2. Розведення гантель лежачи.</p>
+            <img src="img/3.2.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>3. Віджимання на брусях(грудний стиль).</p>
+            <img src="img/3.3.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>4. Біцепс зі штангою стоячи.</p>
+            <img src="img/3.4.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>5. Віджимання на скамї(можна на 1 скамї).</p>
+            <img src="img/3.5.gif" alt="присід">
+        </div>
+        <div class="exercise">
+            <p>6. Біцепс з гантелею з упором в бедро.</p>
+            <img src="img/3.6.gif" alt="присід">
+        </div>
+    </section>
+</main>
+
+<script>
+    const setActiveTab = (activeIndex) => {
+        const allDays = [...document.querySelectorAll('.day')];
+
+        allDays.forEach((dayNode, index) => {
+            if (index === +activeIndex && !dayNode.classList.contains('active-day')) {
+                dayNode.classList.add('active-day')
+            } else if (dayNode.classList.contains('active-day')) {
+                dayNode.classList.remove('active-day')
+            }
+        })
+    }
+
+    const setActiveSection = (activeIndex) => {
+        const allSections = [...document.querySelectorAll('.day__exercises')];
+
+        allSections.forEach((dayNode, index) => {
+            if (index === +activeIndex && !dayNode.classList.contains('active-section')) {
+                dayNode.classList.add('active-section')
+            } else if (dayNode.classList.contains('active-section')) {
+                dayNode.classList.remove('active-section')
+            }
+        })
+    }
+
+    const days = document.querySelector('#days');
+
+    if (window.innerWidth <= 1281) {
+        days.addEventListener('touchstart', function (el) {
+            const currentDay = el.target.dataset.index;
+
+            setActiveTab(currentDay);
+            setActiveSection(currentDay)
+        })
+    } else {
+        days.addEventListener('click', function (el) {
+            const currentDay = el.target.dataset.index;
+
+            setActiveTab(currentDay);
+            setActiveSection(currentDay)
+        })
+    }
+
+
+</script>
+</body>
+</html>
