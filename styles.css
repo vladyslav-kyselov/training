@@ -98,6 +98,11 @@
     margin-bottom: 20px;
 }
 
+img {
+    height: 100%;
+    width: 100%;
+}
+
 @media (min-width: 1281px) {
     .day__caption {
         width: 100%;
@@ -111,5 +116,10 @@
 
     .exercise {
         flex-basis: 28%;
+    }
+
+    img {
+        height: auto;
+        width: auto;
     }
 }
