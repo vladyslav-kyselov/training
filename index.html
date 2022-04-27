@@ -117,12 +117,10 @@
 
         allSections.forEach((dayNode, index) => {
 
-            if (dayNode.classList.contains('active-section') && index !== +activeIndex) {
-                console.log(index, activeIndex)
-                dayNode.classList.remove('active-section')
-            }
             if (index === +activeIndex && !dayNode.classList.contains('active-section')) {
                 dayNode.classList.add('active-section')
+            } else if (dayNode.classList.contains('active-section')) {
+                dayNode.classList.remove('active-section')
             }
         })
     }
